@@ -3,9 +3,9 @@ import avatar from "./assets/avatar.jpg";
 
 function App() {
   const certifications = [
-    { name: "Coursera - Build a free website with WordPress", year: "2024" },
-    { name: "Mathworkd - MATLAB Onramp", year: "2024" },
-    { name: "Microsoft - Describe the concepts of cybersecurity", year: "2024" },
+    { name: "NPTEL – Programming in C", year: "2024" },
+    { name: "Coursera – Frontend Development", year: "2025" },
+    { name: "GUVI – Python Basics", year: "2024" },
   ];
 
   return (
@@ -31,10 +31,18 @@ function App() {
       <section className="mt-12">
         <h3 className="text-2xl font-semibold mb-3">About Me 💡</h3>
         <p className="opacity-80 leading-relaxed">
-          I’m a passionate Computer Science student with strong interest in
-          frontend development, UI/UX, and building modern web experiences.
-          I enjoy learning new technologies and working on real-world projects
-          that help me grow as a developer.
+          Hi, I’m Pavithra — a passionate Computer Science student who loves turning ideas into clean, scalable, and user-friendly software.
+I specialize in Java, Python, C, and modern frontend development, and I’m growing fast in building production-ready applications with React.
+
+I enjoy solving real-world problems through code, optimizing workflows, and designing interfaces that feel intuitive and human.
+My curiosity drives me to learn beyond my syllabus — whether it’s experimenting with full-stack workflows, improving UI/UX, or building small projects that challenge my logic and creativity.
+
+My goal is simple:
+to build impactful products, contribute to engineering teams that value quality, and keep leveling up my skills every single day.
+
+I believe in writing clean code, understanding systems deeply, and delivering work that speaks for itself.
+If a technology excites me, I learn it. If a problem is complex, I break it down.
+I learn fast, adapt quickly, and enjoy being pushed out of my comfort zone — that’s where the growth happens.
         </p>
       </section>
 
@@ -42,11 +50,9 @@ function App() {
       <section className="mt-12">
         <h3 className="text-2xl font-semibold mb-3">Education 🎓</h3>
         <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-          <h4 className="font-bold">B.E – Computer Science & Engineering</h4>
-          <p className="opacity-60 text-sm">2nd Year • 2024 – 2028</p>
-          <p className="opacity-60 text-sm mt-1">
-            College: K.S.R COLLEGE OF ENGINEERING, TIRUCHENGODE.
-          </p>
+          <h4 className="font-bold">B.Tech – Computer Science & Engineering</h4>
+          <p className="opacity-60 text-sm">2nd Year • 2023 – 2027</p>
+          <p className="opacity-60 text-sm mt-1">College: Your College Name</p>
         </div>
       </section>
 
@@ -76,9 +82,9 @@ function App() {
             <span className="font-bold">Email:</span>{" "}
             <a
               className="text-purple-400 underline"
-              href="mailto:pavithraasaithambi105@gmail.com"
+              href="mailto:yourgmail@gmail.com"
             >
-              pavithraasaithambi105@gmail.com
+              yourgmail@gmail.com
             </a>
           </p>
 
@@ -86,7 +92,7 @@ function App() {
             <span className="font-bold">GitHub:</span>{" "}
             <a
               className="text-purple-400 underline"
-              href="https://github.com/yourgithub"
+              href="https://github.com/pavithraasaithambi105-lab"
               target="_blank"
             >
               github.com/yourgithub
@@ -107,10 +113,10 @@ function App() {
 
         {/* Contact Form */}
         <form
-          action="https://formspree.io/f/xqawoyng" method="POST">
+          action="https://formspree.io/f/mkgynlal"
           method="POST"
           className="mt-6 bg-gray-800 p-4 rounded-lg border border-gray-700 space-y-3"
-        
+        >
           <input
             type="text"
             name="name"
@@ -140,20 +146,21 @@ function App() {
           </button>
         </form>
 
-        {/* Resume Button */}
+        {/* Resume Button (FIXED) */}
         <a
           href="/resume.pdf"
-          download
-          className="mt-6 inline-block bg-purple-700 px-4 py-2 rounded"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700 mt-4 inline-block text-center"
         >
           Download Resume
         </a>
-      </section>
 
-      {/* Footer */}
-      <footer className="text-center mt-12 opacity-50 text-sm">
-        Portfolio • Built with React + Vite ⚡
-      </footer>
+        {/* Footer */}
+        <footer className="text-center mt-12 opacity-50 text-sm">
+          Portfolio • Built with React + Vite ⚡
+        </footer>
+      </section>
     </div>
   );
 }
