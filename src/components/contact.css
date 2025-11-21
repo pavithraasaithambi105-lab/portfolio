@@ -1,0 +1,33 @@
+.contact-grid{display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
+@media (max-width:900px){.contact-grid{flex-direction:column}}
+
+
+.contact-left{flex:1;min-width:220px;padding:22px}
+.contact-left h2{margin-top:0}
+.subtitle{opacity:0.85}
+.social-list{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.glow-link{position:relative;color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
+.glow-link::after{content:'';position:absolute;left:0;bottom:0;height:3px;width:0;background:linear-gradient(90deg,var(--neon),var(--neon-2));box-shadow:0 0 18px rgba(140,0,255,0.2);transition:width 0.35s}
+.glow-link:hover::after{width:100%}
+.glow-link:hover{color:#fff}
+
+
+.contact-form{flex:1.3;min-width:320px;padding:22px}
+.input-group{position:relative;margin-bottom:18px}
+.input-group input,.input-group textarea{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(140,0,255,0.12);background:rgba(14,8,20,0.6);color:#fff;outline:none}
+.input-group textarea{min-height:140px;max-height:320px;resize:vertical;overflow:auto;box-shadow:inset 0 0 30px rgba(140,0,255,0.03)}
+.input-group label{position:absolute;left:16px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted);background:transparent;padding:0 6px;transition:0.25s}
+.input-group input:focus + label,.input-group textarea:focus + label,.input-group input:valid + label{top:-10px;font-size:0.82rem;color:#fff;text-shadow:0 0 8px rgba(140,0,255,0.2)}
+.char-count{position:absolute;right:8px;bottom:6px;color:var(--muted);font-size:0.8rem}
+
+
+/* neon animated textarea border */
+.contact-form textarea{border-radius:18px;border:1px solid rgba(140,0,255,0.18);animation:neonBorder 3s linear infinite alternate}
+@keyframes neonBorder{0%{box-shadow:0 0 8px rgba(140,0,255,0.18);border-color:rgba(140,0,255,0.18)}100%{box-shadow:0 0 30px rgba(255,0,204,0.18);border-color:rgba(255,0,204,0.28)}}
+
+
+.send-btn{padding:12px 18px;border-radius:12px;border:1px solid rgba(140,0,255,0.2);background:linear-gradient(90deg,var(--neon),var(--neon-2));color:#fff;font-weight:600;cursor:pointer;margin-top:8px}
+.send-btn.sent{background:linear-gradient(90deg,#00e19e,#00b884);box-shadow:0 0 18px #00e19e;transform:scale(1.02)}
+
+
+.unique-box{margin-top:16px;padding:12px;border-radius:10px;border:1px dashed rgba(140,0,255,0.06)}
