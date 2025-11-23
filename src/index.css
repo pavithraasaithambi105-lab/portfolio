@@ -1,14 +1,296 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* ---------------- Global ---------------- */
+body, p, a, span, li, input, textarea, button {
+  color: #f6f6f6 !important;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
-  background-color: #0d0d0d;
-  color: #fff;
+  box-sizing: border-box;
 }
 
-h2 {
-  text-align: center;
+body {
+  background: black;
+  overflow-x: hidden;
+}
+
+/* ---------------- Video Background ---------------- */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
+/* ---------------- Navbar ---------------- */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 0;
+  margin: 15px auto;
+  width: 92%;
+  background: rgba(0,0,0,0.55);
+  border-radius: 12px;
+  border: 1px solid rgba(140,0,255,0.12);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 10px;
+  z-index: 50;
+  gap: 20px;
+}
+
+.nav-btn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(140,0,255,0.25);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+  text-shadow: 0 0 5px #fff, 0 0 10px #8c00ff, 0 0 20px #8c00ff;
+}
+
+.nav-btn:hover {
+  background: rgba(140,0,255,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px #8c00ff, 0 0 25px #8c00ff, 0 0 40px #8c00ff;
+}
+
+/* ---------------- Section ---------------- */
+section {
+  margin: 70px auto;
+  width: 92%;
+  max-width: 1100px;
+  background: rgba(117, 100, 159, 0.55);
+  border-radius: 14px;
+  padding: 32px;
+  border: 1px solid rgba(177, 127, 218, 0.12);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(140,0,255,0.6),
+              inset 0 0 15px rgba(140,0,255,0.4);
+}
+
+section h2 {
   font-size: 2rem;
-  margin: 40px 0 20px 0;
+  text-align: center;
+  text-shadow: 0 0 12px #8c00ff, 0 0 20px #b56bff;
+  margin-bottom: 25px;
+}
+
+/* ---------------- Hero ---------------- */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 15px #8c00ff, 0 0 25px #b56bff;
+}
+
+.highlight {
+  color: #d892ff;
+  text-shadow: 0 0 12px #8c00ff, 0 0 25px #d892ff;
+}
+
+.hero-desc {
+  margin: 12px 0;
+  font-size: 1.2rem;
+  max-width: 400px;
+  text-shadow: 0 0 5px #fff, 0 0 10px #8c00ff;
+}
+
+.hero-btn {
+  margin-top: 14px;
+  padding: 10px 20px;
+  background: #8c00ff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-shadow: 0 0 5px #fff, 0 0 10px #b56bff;
+}
+
+.hero-btn:hover {
+  transform: translateX(5px);
+  box-shadow: 0 0 12px #8c00ff, 0 0 25px #b56bff, 0 0 35px #d892ff;
+}
+
+/* ---------------- GIF square ---------------- */
+.square-gif {
+  width: 380px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(140,0,255,0.45), 0 0 28px rgba(177,127,218,0.35);
+}
+
+/* ---------------- Neon Box Reusable ---------------- */
+.neon-box {
+  text-align: center;
+  padding: 20px;
+  background: #3f4d68ff;
   color: #fff;
+  margin-top: 40px;
+  border: 2px solid #8c00ff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #8c00ff, 0 0 30px #8c00ff, 0 0 45px #8c00ff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #8c00ff, 0 0 20px #8c00ff;
+  transition: 0.3s;
+}
+
+@keyframes neonGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px #8c00ff, 0 0 30px #8c00ff, 0 0 45px #8c00ff;
+  }
+  50% {
+    box-shadow: 0 0 25px #8c00ff, 0 0 50px #8c00ff, 0 0 75px #8c00ff;
+  }
+}
+
+.neon-box.glow {
+  animation: neonGlow 1.5s infinite alternate;
+}
+
+/* ---------------- Responsive Hero ---------------- */
+@media screen and (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .square-gif {
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+  }
+}
+
+/* ---------------- Contact Section ---------------- */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 20px;
+}
+
+.contact-form, .contact-info {
+  flex: 1;
+  background: rgba(171, 100, 243, 0.4);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(250, 248, 251, 0.15);
+}
+
+.contact-form h2, 
+.contact-info h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  text-shadow: 0 0 12px #fdfbfe, 0 0 20px #d9d4dd;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  background: rgba(91, 55, 96, 0.08);
+  border: none;
+  color: white;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: #9577b3;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  text-shadow: 0 0 5px #fff, 0 0 10px #b56bff;
+}
+
+.contact-form button:hover {
+  box-shadow: 0 0 15px #f6f5f8, 0 0 30px #764dd0, 0 0 45px #af4ee3;
+  transform: scale(1.03);
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.contact-info a {
+  color: #eeeaf3;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-shadow: 0 0 10px #8a3fc7, 0 0 20px #944ade;
+}
+
+/* ---------------- Reveal Animations ---------------- */
+.reveal {
+  opacity: 0;
+  transition: 0.9s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+.reveal-left {
+  transform: translateX(-80px);
+}
+.reveal-left.active {
+  transform: translateX(0);
+}
+
+.reveal-right {
+  transform: translateX(80px);
+}
+.reveal-right.active {
+  transform: translateX(0);
+}
+
+.reveal-up {
+  transform: translateY(80px);
+}
+.reveal-up.active {
+  transform: translateY(0);
 }

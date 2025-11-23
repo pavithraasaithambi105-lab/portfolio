@@ -1,17 +1,66 @@
 import React from "react";
+import { FaUniversity, FaSchool } from "react-icons/fa"; // Icons
 
-function Academics() {
+export default function Academics() {
   return (
-    <div className="section">
-      <h2>Academics</h2>
+    <div
+      className="academics"
+      style={{
+        textAlign: "center",
+        padding: "40px",
+      }}
+    >
+      <h2 style={{ fontSize: "28px", marginBottom: "20px" }}>Academics</h2>
 
-      <div className="info-box">
-        <p><b>B.Tech – CSE</b></p>
-        <p>2nd Year (2023–2027)</p>
-        <p>Your College Name Here</p>
-      </div>
+      <ul
+        style={{
+          listStyle: "none",
+          padding: 0,
+          fontSize: "18px",
+          lineHeight: "35px",
+        }}
+      >
+        <li
+          className="academics-item"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "10px",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+        >
+          <FaUniversity className="icon" size={25} />
+          Bachelor of Computer Science - XYZ University
+        </li>
+
+        <li
+          className="academics-item"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "10px",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+        >
+          <FaSchool className="icon" size={25} />
+          High School - ABC School
+        </li>
+      </ul>
+
+      {/* Inline CSS Animation */}
+      <style>{`
+        .academics-item .icon {
+          transition: transform 0.4s ease, color 0.3s ease;
+        }
+
+        .academics-item:hover .icon {
+          transform: rotate(20deg) scale(1.2);
+          color: #3b82f6; /* blue on hover */
+        }
+      `}</style>
     </div>
   );
 }
 
-export default Academics;

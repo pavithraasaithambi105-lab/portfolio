@@ -1,16 +1,44 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar({ setActiveSection }) {
   return (
-    <nav>
-      <div className="logo">PAVITHRA A</div>
+    <nav
+      className="navbar"
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 999,
+        background: "rgba(0,0,0,0.6)",
+        padding: "12px 0",
+        backdropFilter: "blur(10px)",
+        display: "flex",
+        justifyContent: "center",
+        gap: "22px",
+      }}
+    >
+      <button className="nav-btn" onClick={() => setActiveSection("home")}>
+        Home
+      </button>
 
-      <div className="links">
-        <a href="#home">Home</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <button className="nav-btn" onClick={() => setActiveSection("about")}>
+        About
+      </button>
+
+      <button className="nav-btn" onClick={() => setActiveSection("skills")}>
+        Skills
+      </button>
+
+      <button className="nav-btn" onClick={() => setActiveSection("academics")}>
+        Academics
+      </button>
+
+      <button className="nav-btn" onClick={() => setActiveSection("projects")}>
+        Projects
+      </button>
+
+      <button className="nav-btn" onClick={() => setActiveSection("contact")}>
+        Contact
+      </button>
     </nav>
   );
 }
