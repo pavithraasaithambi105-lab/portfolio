@@ -33,14 +33,26 @@ export default function Hero({ setActiveSection }) {
           I create interactive, animated web experiences.
         </motion.p>
 
+        {/* Explore More Button */}
         <motion.button
           className="hero-btn"
           whileHover={{ scale: 1.1, x: 5 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 250 }}
-          onClick={() => setActiveSection("about")} // Navigate to About on click
+          onClick={() => setActiveSection("about")}
         >
           Explore More <ArrowRight size={18} className="arrow" />
+        </motion.button>
+
+        {/* ⭐ NEW Resume Button */}
+        <motion.button
+          className="hero-btn"
+          style={{ marginTop: "12px" }}   // small space below Explore More
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setActiveSection("resume")}
+        >
+          View Resume
         </motion.button>
       </motion.div>
 
@@ -53,3 +65,4 @@ export default function Hero({ setActiveSection }) {
     </div>
   );
 }
+

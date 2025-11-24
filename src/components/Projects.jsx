@@ -1,79 +1,81 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Timer, FolderOpen, Bot } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Projects() {
-  const items = [
-    { 
-      title: "Focus Timer", 
-      desc: "A productivity timer app with history and sound alerts.",
-      icon: <Timer size={28} />,
-      animation: { x: -80, y: 0 }   // LEFT
+  const projectList = [
+    {
+      id: 1,
+      title: "Focus Timer",
+      image: "/projects/project1.jpg",
+      description:
+        "A productivity timer with work/break cycles, animations, and task history.",
     },
-    { 
-      title: "Portfolio", 
-      desc: "This animated, neon-themed responsive portfolio website.",
-      icon: <FolderOpen size={28} />,
-      animation: { x: 80, y: 0 }    // RIGHT
+    {
+      id: 2,
+      title: "Portfolio Website",
+      image: "/projects/project2.jpg",
+      description:
+        "A fully animated portfolio with neon effects, smooth navigation, and chatbot.",
     },
-    { 
-      title: "Chatbot", 
-      desc: "A voice-enabled chatbot using API integration.",
-      icon: <Bot size={28} />,
-      animation: { x: 0, y: 80 }    // BOTTOM
+    {
+      id: 3,
+      title: "Weather App",
+      image: "/projects/project3.jpg",
+      description:
+        "A weather application using API integration with animated UI elements.",
     },
   ];
 
-  const [open, setOpen] = useState(null);
+  const [activeProject, setActiveProject] = useState(null);
+
+  const toggleProject = (id) => {
+    setActiveProject(activeProject === id ? null : id);
+  };
 
   return (
-    <div className="projects">
-      <h2 className="section-title">Projects</h2>
+    <div className="projects-container">
+      <h2 className="project-title">My Projects</h2>
 
       <div className="project-grid">
-        {items.map((it, idx) => (
+        {projectList.map((project) => (
           <motion.div
-            key={it.title}
-            className="card"
-            onClick={() => setOpen(idx)}
-            initial={{ opacity: 0, x: it.animation.x, y: it.animation.y }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.6, delay: idx * 0.2 }}
-            whileHover={{ scale: 1.08, y: -6 }}
+            key={project.id}
+            className="project-card"
+            whileHover={{ scale: 1.05 }}
+            onClick={() => toggleProject(project.id)}
           >
-            <div className="card-icon">{it.icon}</div>
-            <h3>{it.title}</h3>
-            <p>{it.desc}</p>
-            <span className="button">View</span>
+            {/* IMAGE MODE */}
+            {activeProject !== project.id && (
+              <motion.img
+                src={project.image}
+                alt={project.title}
+                className="project-image"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              />
+            )}
+
+            {/* DETAILS MODE */}
+            {activeProject === project.id && (
+              <motion.div
+                className="project-details"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              >
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <motion.button
+                  className="close-btn"
+                  whileHover={{ scale: 1.1 }}
+                  onClick={() => setActiveProject(null)}
+                >
+                  Close
+                </motion.button>
+              </motion.div>
+            )}
           </motion.div>
         ))}
       </div>
-
-      <AnimatePresence>
-        {open !== null && (
-          <motion.div 
-            className="modal"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="modal-inner"
-              initial={{ scale: 0.6, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.6, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 150 }}
-            >
-              <button className="close" onClick={() => setOpen(null)}>✕</button>
-
-              <div className="modal-icon">{items[open].icon}</div>
-
-              <h3>{items[open].title}</h3>
-              <p>{items[open].desc}</p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

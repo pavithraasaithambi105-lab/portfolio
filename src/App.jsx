@@ -7,6 +7,7 @@ import Skills from "./components/Skills";
 import Academics from "./components/Academics";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import VideoBackground from "./components/VideoBackground";
@@ -23,13 +24,13 @@ function App() {
       <VideoBackground />
       <div className="video-overlay" />
 
-      {/* ⭐ NAVBAR sends the state change */}
+      {/* ⭐ NAVBAR (contains Resume button now) */}
       <Navbar setActiveSection={setActiveSection} />
 
       {/* ⭐ SWITCH PAGES LIKE AN APP */}
       {activeSection === "home" && (
         <section id="home">
-          <Hero />
+          <Hero setActiveSection={setActiveSection} />
         </section>
       )}
 
@@ -54,6 +55,13 @@ function App() {
       {activeSection === "projects" && (
         <section id="projects" className="reveal reveal-right active">
           <Projects />
+        </section>
+      )}
+
+      {/* ⭐ NEW RESUME SECTION */}
+      {activeSection === "resume" && (
+        <section id="resume" className="reveal reveal-left active">
+          <Resume />
         </section>
       )}
 

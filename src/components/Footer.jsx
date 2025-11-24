@@ -5,7 +5,12 @@ import { Instagram, Github, Mail } from "lucide-react";
 export default function Footer() {
   return (
     <footer
-  style={{ textAlign: "center", padding: "20px", background: "#3f4d68ff", color: "#fff", marginTop: "40px", }}
+  style={{
+  textAlign: "center",
+  padding: "20px",
+  color: "#fff",
+  marginTop: "40px",
+}}
 
     >
       <motion.div

@@ -1,16 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaReact, FaPaintBrush, FaCode } from "react-icons/fa"; // Icons
+import { FaReact, FaPaintBrush, FaCode } from "react-icons/fa"; 
 
 export default function About() {
   return (
     <motion.div
       className="about"
-      style={{ textAlign: "center", padding: "40px" }}
-      initial={{ opacity: 0, y: 60 }}        // 👈 start hidden & down
-      whileInView={{ opacity: 1, y: 0 }}     // 👈 animate when visible
+      style={{ 
+        textAlign: "center", 
+        padding: "40px",
+        background: "transparent"  // 🟢 Fully transparent background
+      }}
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: true }}              // 👈 animate only once
+      viewport={{ once: true }}
     >
       {/* TOP PHOTO */}
       <img
@@ -21,24 +25,26 @@ export default function About() {
           height: "180px",
           borderRadius: "50%",
           objectFit: "cover",
-          transform: "none",
           border: "4px solid black",
           marginBottom: "20px",
+          background: "transparent"  // 🟢 Ensure no white background inside image
         }}
       />
 
-      <h2 style={{ fontSize: "28px", marginBottom: "10px" }}>About Me</h2>
+      <h2 style={{ fontSize: "28px", marginBottom: "10px" }}>
+        About Me
+      </h2>
 
       <p
         style={{
           fontSize: "18px",
           maxWidth: "600px",
-          margin: "0 auto",
-          marginBottom: "20px",
+          margin: "0 auto 20px",
+          background: "transparent", // 🟢 Remove background from text too
         }}
       >
-        I am Pavithra, a passionate web developer specializing in React,
-        animations, and unique UI experiences.
+        I'm a Computer Science student who loves exploring AI and developing
+        projects that help me learn and grow.
       </p>
 
       {/* ICONS WITH ANIMATIONS */}
@@ -48,6 +54,7 @@ export default function About() {
           justifyContent: "center",
           gap: "30px",
           marginTop: "20px",
+          background: "transparent" // 🟢 Transparent container
         }}
       >
         <div className="about-icon">
@@ -66,12 +73,13 @@ export default function About() {
         </div>
       </div>
 
-      {/* INLINE CSS */}
+      {/* ICON ANIMATIONS */}
       <style>{`
         .about-icon {
           text-align: center;
           transition: transform 0.4s ease, color 0.4s ease;
           cursor: pointer;
+          background: transparent !important; /* 🟢 Force transparent */
         }
 
         .about-icon:hover {

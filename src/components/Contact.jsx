@@ -36,7 +36,7 @@ export default function Contact() {
           <input
             type="email"
             name="email"
-            placeholder="Your Email"
+            placeholder="Your email"
             value={formData.email}
             onChange={handleChange}
             required
@@ -55,8 +55,8 @@ export default function Contact() {
       {/* Right side: contact info */}
       <div className="contact-info">
         <h2>Contact Info</h2>
-        <p>📞 Mobile: +91 12345 67890</p>
-        <p>✉ Email: yourname@example.com</p>
+        <p>📞 Mobile: +91 73584 81488</p>
+        <p>✉ Email: pavithraasaithambi105@gmail.com</p>
         <p>
           💻 GitHub:{" "}
           <a
@@ -64,7 +64,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            yourusername
+            PAVITHRA A
           </a>
         </p>
         <p>
@@ -74,7 +74,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            yourprofile
+            PAVITHRA A
           </a>
         </p>
       </div>

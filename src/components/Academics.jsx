@@ -31,7 +31,7 @@ export default function Academics() {
           }}
         >
           <FaUniversity className="icon" size={25} />
-          Bachelor of Computer Science - XYZ University
+          Bachelor of Computer Science - K.S.R COLLEGE OF ENGINEERING
         </li>
 
         <li
@@ -45,7 +45,7 @@ export default function Academics() {
           }}
         >
           <FaSchool className="icon" size={25} />
-          High School - ABC School
+          High School - GOVERNMENT GIRLS HIGHER SECONDARY SCHOOL
         </li>
       </ul>
 

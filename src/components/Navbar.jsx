@@ -39,6 +39,11 @@ export default function Navbar({ setActiveSection }) {
       <button className="nav-btn" onClick={() => setActiveSection("contact")}>
         Contact
       </button>
+
+      {/* ✅ Resume Button Added */}
+      <button className="nav-btn" onClick={() => setActiveSection("resume")}>
+        Resume
+      </button>
     </nav>
   );
 }
