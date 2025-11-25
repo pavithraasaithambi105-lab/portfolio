@@ -43,17 +43,6 @@ export default function Hero({ setActiveSection }) {
         >
           Explore More <ArrowRight size={18} className="arrow" />
         </motion.button>
-
-        {/* ⭐ NEW Resume Button */}
-        <motion.button
-          className="hero-btn"
-          style={{ marginTop: "12px" }}   // small space below Explore More
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setActiveSection("resume")}
-        >
-          View Resume
-        </motion.button>
       </motion.div>
 
       {/* RIGHT SIDE GIF */}
@@ -65,4 +54,3 @@ export default function Hero({ setActiveSection }) {
     </div>
   );
 }
-

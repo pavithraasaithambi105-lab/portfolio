@@ -1,15 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaReact, FaPaintBrush, FaCode } from "react-icons/fa"; 
+import { FaReact, FaPaintBrush, FaCode } from "react-icons/fa";
+import { FileDown } from "lucide-react"; // Resume icon
 
 export default function About() {
   return (
     <motion.div
       className="about"
-      style={{ 
-        textAlign: "center", 
+      style={{
+        textAlign: "center",
         padding: "40px",
-        background: "transparent"  // 🟢 Fully transparent background
+        background: "transparent",
       }}
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -27,25 +28,50 @@ export default function About() {
           objectFit: "cover",
           border: "4px solid black",
           marginBottom: "20px",
-          background: "transparent"  // 🟢 Ensure no white background inside image
+          background: "transparent",
         }}
       />
 
-      <h2 style={{ fontSize: "28px", marginBottom: "10px" }}>
-        About Me
-      </h2>
+      <h2 style={{ fontSize: "28px", marginBottom: "10px" }}>About Me</h2>
 
       <p
         style={{
           fontSize: "18px",
           maxWidth: "600px",
           margin: "0 auto 20px",
-          background: "transparent", // 🟢 Remove background from text too
+          background: "transparent",
         }}
       >
-        I'm a Computer Science student who loves exploring AI and developing
-        projects that help me learn and grow.
+        I’m passionate about building creative web applications, exploring AI,
+        and constantly learning new technologies to sharpen my skills.
       </p>
+
+      {/* RESUME BUTTON (inside About section) */}
+      <a
+        href="/resume.pdf" // <-- place your file in public/resume.pdf
+        target="_blank"
+        rel="noopener noreferrer"
+        className="resume-btn"
+        style={{
+          display: "inline-flex",
+          gap: "10px",
+          alignItems: "center",
+          padding: "12px 20px",
+          marginTop: "12px",
+          background: "rgba(140,0,255,0.6)",
+          borderRadius: "10px",
+          border: "1px solid rgba(216, 146, 255, 0.4)",
+          fontWeight: "600",
+          cursor: "pointer",
+          textDecoration: "none",
+          color: "white",
+          textShadow: "0 0 10px #fff, 0 0 20px #8c00ff",
+          transition: "0.3s",
+        }}
+      >
+        <FileDown size={20} />
+        View Resume
+      </a>
 
       {/* ICONS WITH ANIMATIONS */}
       <div
@@ -53,8 +79,8 @@ export default function About() {
           display: "flex",
           justifyContent: "center",
           gap: "30px",
-          marginTop: "20px",
-          background: "transparent" // 🟢 Transparent container
+          marginTop: "30px",
+          background: "transparent",
         }}
       >
         <div className="about-icon">
@@ -73,13 +99,12 @@ export default function About() {
         </div>
       </div>
 
-      {/* ICON ANIMATIONS */}
       <style>{`
         .about-icon {
           text-align: center;
           transition: transform 0.4s ease, color 0.4s ease;
           cursor: pointer;
-          background: transparent !important; /* 🟢 Force transparent */
+          background: transparent !important;
         }
 
         .about-icon:hover {
