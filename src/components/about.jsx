@@ -31,11 +31,10 @@ export default function About() {
       animate="visible"
       viewport={{ once: true }}
     >
-
-      {/* TOP PHOTO (FIXED) */}
+      {/* TOP PHOTO */}
       <motion.img
-        src="/anime/ghibli.png"
-        alt="Profile"
+       src="/anime/ghibli.png" alt="Profile" 
+
         style={{
           width: "180px",
           height: "180px",
@@ -64,8 +63,7 @@ export default function About() {
         }}
         variants={itemVariants}
       >
-        I'm a Computer Science student who loves exploring AI 
-        and developing projects that help me learn and grow.
+        I'm a Computer Science student who loves exploring AI and developing projects that help me learn and grow.
       </motion.p>
 
       {/* ICONS WITH ANIMATIONS */}
@@ -138,4 +136,4 @@ export default function About() {
       `}</style>
     </motion.div>
   );
-}
+}    

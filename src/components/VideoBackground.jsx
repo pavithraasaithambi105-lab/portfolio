@@ -10,8 +10,8 @@ export default function VideoBackground() {
       loop
       playsInline
     >
-      <source src={process.env.PUBLIC_URL + "/videos/hero.mp4"} type="video/mp4" />
+      <source src="/videos/hero.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   );
-}
+}  
