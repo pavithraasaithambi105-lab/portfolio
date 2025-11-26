@@ -6,21 +6,21 @@ export default function Projects() {
     {
       id: 1,
       title: "Focus Timer",
-      image: "/portfolio/projects/project1.jpg",
+      image: process.env.PUBLIC_URL + "/projects/project1.jpg",
       description:
         "A productivity timer with work/break cycles, animations, and task history.",
     },
     {
       id: 2,
       title: "Portfolio Website",
-      image: "/portfolio/projects/project2.jpg",
+      image: process.env.PUBLIC_URL + "/projects/project2.jpg",
       description:
         "A fully animated portfolio with neon effects, smooth navigation, and chatbot.",
     },
     {
       id: 3,
       title: "Weather App",
-      image: "/portfolio/projects/project3.jpg",
+      image: process.env.PUBLIC_URL + "/projects/project3.jpg",
       description:
         "A weather application using API integration with animated UI elements.",
     },

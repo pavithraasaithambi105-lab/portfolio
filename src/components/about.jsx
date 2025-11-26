@@ -2,18 +2,38 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaReact, FaPaintBrush, FaCode } from "react-icons/fa"; // Icons
 
+// ✅ Variants for staggered reveal of icons and text
+const containerVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      staggerChildren: 0.2, // Stagger child animations
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 export default function About() {
   return (
     <motion.div
       className="about"
       style={{ textAlign: "center", padding: "40px" }}
-      initial={{ opacity: 0, y: 60 }}        // 👈 start hidden & down
-      whileInView={{ opacity: 1, y: 0 }}     // 👈 animate when visible
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: true }}              // 👈 animate only once
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      viewport={{ once: true }}
     >
-      {/* TOP PHOTO */}
-      <img
+
+      {/* TOP PHOTO (FIXED) */}
+      <motion.img
         src="/anime/ghibli.png"
         alt="Profile"
         style={{
@@ -25,48 +45,57 @@ export default function About() {
           border: "4px solid black",
           marginBottom: "20px",
         }}
+        variants={itemVariants}
       />
 
-      <h2 style={{ fontSize: "28px", marginBottom: "10px" }}>About Me</h2>
+      <motion.h2
+        style={{ fontSize: "28px", marginBottom: "10px" }}
+        variants={itemVariants}
+      >
+        About Me
+      </motion.h2>
 
-      <p
+      <motion.p
         style={{
           fontSize: "18px",
           maxWidth: "600px",
           margin: "0 auto",
           marginBottom: "20px",
         }}
+        variants={itemVariants}
       >
-        I'm a Computer Science student who loves exploring AI and developing projects that help me learn and grow.
-      </p>
+        I'm a Computer Science student who loves exploring AI 
+        and developing projects that help me learn and grow.
+      </motion.p>
 
       {/* ICONS WITH ANIMATIONS */}
-      <div
+      <motion.div
         style={{
           display: "flex",
           justifyContent: "center",
           gap: "30px",
           marginTop: "20px",
         }}
+        variants={itemVariants}
       >
-        <div className="about-icon">
+        <motion.div className="about-icon" variants={itemVariants}>
           <FaReact size={40} />
           <p style={{ marginTop: "5px" }}>React Developer</p>
-        </div>
+        </motion.div>
 
-        <div className="about-icon">
+        <motion.div className="about-icon" variants={itemVariants}>
           <FaPaintBrush size={40} />
           <p style={{ marginTop: "5px" }}>UI Designer</p>
-        </div>
+        </motion.div>
 
-        <div className="about-icon">
+        <motion.div className="about-icon" variants={itemVariants}>
           <FaCode size={40} />
           <p style={{ marginTop: "5px" }}>Animator</p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      {/* ⭐ RESUME BUTTON ADDED HERE */}
-      <button
+      {/* ⭐ RESUME BUTTON */}
+      <motion.button
         onClick={() => window.open("/resume.pdf", "_blank")}
         style={{
           marginTop: "30px",
@@ -79,9 +108,12 @@ export default function About() {
           cursor: "pointer",
           transition: "0.3s",
         }}
+        whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(59,130,246,0.4)" }}
+        whileTap={{ scale: 0.95 }}
+        variants={itemVariants}
       >
         View Resume
-      </button>
+      </motion.button>
 
       {/* INLINE CSS */}
       <style>{`

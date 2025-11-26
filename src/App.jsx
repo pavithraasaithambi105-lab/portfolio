@@ -1,20 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion"; // ✅ Import Framer Motion
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
+import About from "./components/about";
 import Skills from "./components/Skills";
 import Academics from "./components/Academics";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
-import VideoBackground from "./components/VideoBackground";
+import VideoBackground from "./components/videobackground";
 
 function App() {
 
   // ⭐ Controls which page is visible
   const [activeSection, setActiveSection] = useState("home");
+
+  // ⭐ Nebular-space cursor state
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [trail, setTrail] = useState([]);
+
+  useEffect(() => {
+    const moveCursor = (e) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+
+      // ⭐ Add trail dot
+      setTrail((prev) => [
+        ...prev.slice(-10), // limit trail to 10 dots
+        { x: e.clientX, y: e.clientY, id: Date.now() },
+      ]);
+    };
+    window.addEventListener("mousemove", moveCursor);
+    return () => window.removeEventListener("mousemove", moveCursor);
+  }, []);
 
   return (
     <div className="app-container">
@@ -33,10 +52,18 @@ function App() {
         </section>
       )}
 
+      {/* ⭐ ABOUT SECTION WITH REVEAL ANIMATION */}
       {activeSection === "about" && (
-        <section id="about" className="reveal reveal-right active">
+        <motion.section
+          id="about"
+          initial={{ opacity: 0, y: 30 }}      // Start hidden and slightly lower
+          animate={{ opacity: 1, y: 0 }}       // Animate to visible position
+          exit={{ opacity: 0, y: -20 }}        // Optional: exit animation
+          transition={{ duration: 0.7 }}       // Animation speed
+          className="reveal reveal-right active"
+        >
           <About />
-        </section>
+        </motion.section>
       )}
 
       {activeSection === "skills" && (
@@ -57,7 +84,6 @@ function App() {
         </section>
       )}
 
-      {/* ⭐ RESUME SECTION */}
       {activeSection === "resume" && (
         <section id="resume" className="reveal reveal-left active">
           <Resume />
@@ -71,6 +97,23 @@ function App() {
       )}
 
       <Footer />
+
+      {/* ⭐ CUSTOM NEBULAR-SPACE STAR CURSOR */}
+      <div
+        className="custom-cursor"
+        style={{
+          left: `${cursorPos.x}px`,
+          top: `${cursorPos.y}px`,
+        }}
+      />
+      {/* ⭐ STAR TRAIL */}
+      {trail.map((dot) => (
+        <div
+          key={dot.id}
+          className="cursor-trail"
+          style={{ left: dot.x, top: dot.y }}
+        />
+      ))}
     </div>
   );
 }

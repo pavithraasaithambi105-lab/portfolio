@@ -273,3 +273,38 @@ section h2 {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+/* Main glowing star cursor */
+.custom-cursor {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #acf0f2, #6ad7f8);
+  box-shadow: 0 0 10px #acf0f2, 0 0 20px #6ad7f8;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* Trail dots */
+.cursor-trail {
+  position: fixed;
+  width: 15px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(249, 247, 247, 0.895);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: fadeTrail 0.5s forwards;
+  z-index: 9998;
+}
+
+@keyframes fadeTrail {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
+}

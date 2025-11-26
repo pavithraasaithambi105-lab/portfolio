@@ -1,4 +1,3 @@
-// src/components/VideoBackground.jsx
 import React from "react";
 import "./VideoBackground.css";
 
@@ -11,7 +10,7 @@ export default function VideoBackground() {
       loop
       playsInline
     >
-      <source src="/videos/hero.mp4" type="video/mp4" />
+      <source src={process.env.PUBLIC_URL + "/videos/hero.mp4"} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   );

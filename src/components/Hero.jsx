@@ -47,7 +47,7 @@ export default function Hero({ setActiveSection }) {
 
       {/* RIGHT SIDE GIF */}
       <img
-        src="/gif/anime-float.gif"
+        src={process.env.PUBLIC_URL + "/gif/anime-float.gif"}
         alt="Anime GIF"
         className="square-gif"
       />
