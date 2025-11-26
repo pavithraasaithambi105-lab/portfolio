@@ -29,20 +29,23 @@ export default function Skills() {
       <div className="skills-grid">
         {skills.map((skill, index) => (
           <motion.div
-            key={index}
-            className="skill-card"
-            whileHover={{ scale: 1.08, y: -6 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }} // animate each card when visible
-            transition={{duration: 0.5,
-              delay: index * 0.15, // small delay for stagger effect
-            }}
-          >
-            <div className="skill-icon">{skill.icon}</div>
-            <p className="skill-name">{skill.name}</p>
-          </motion.div>
+  key={index}
+  className="skill-card"
+  whileHover={{ scale: 1.08, y: -6 }}
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{
+    type: "spring",
+    stiffness: 200,
+    duration: 0.5,
+    delay: index * 0.15,
+  }}
+>
+  <div className="skill-icon">{skill.icon}</div>
+  <p className="skill-name">{skill.name}</p>
+</motion.div>
+
         ))}
       </div>
     </motion.div>

@@ -6,21 +6,21 @@ export default function Projects() {
     {
       id: 1,
       title: "Focus Timer",
-      image: "/projects/project1.jpg",
+      image: "/portfolio/projects/project1.jpg",
       description:
         "A productivity timer with work/break cycles, animations, and task history.",
     },
     {
       id: 2,
       title: "Portfolio Website",
-      image: "/projects/project2.jpg",
+      image: "/portfolio/projects/project2.jpg",
       description:
         "A fully animated portfolio with neon effects, smooth navigation, and chatbot.",
     },
     {
       id: 3,
       title: "Weather App",
-      image: "/projects/project3.jpg",
+      image: "/portfolio/projects/project3.jpg",
       description:
         "A weather application using API integration with animated UI elements.",
     },
@@ -28,21 +28,21 @@ export default function Projects() {
 
   const [activeProject, setActiveProject] = useState(null);
 
-  const toggleProject = (id) => {
-    setActiveProject(activeProject === id ? null : id);
-  };
-
   return (
     <div className="projects-container">
       <h2 className="project-title">My Projects</h2>
 
       <div className="project-grid">
-        {projectList.map((project) => (
+        {projectList.map((project, index) => (
           <motion.div
             key={project.id}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.15,
+            }}
             className="project-card"
-            whileHover={{ scale: 1.05 }}
-            onClick={() => toggleProject(project.id)}
           >
             {/* IMAGE MODE */}
             {activeProject !== project.id && (
@@ -52,6 +52,7 @@ export default function Projects() {
                 className="project-image"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
+                onClick={() => setActiveProject(project.id)}
               />
             )}
 

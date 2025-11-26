@@ -29,6 +29,7 @@ export default function Resume() {
           scale: 1.15,
           boxShadow: "0 0 20px rgba(255, 0, 170, 0.8)",
         }}
+
         whileTap={{ scale: 0.95 }}
       >
         <FileDown size={22} />

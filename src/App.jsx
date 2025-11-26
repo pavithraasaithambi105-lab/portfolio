@@ -9,7 +9,6 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
-import Chatbot from "./components/Chatbot";
 import VideoBackground from "./components/VideoBackground";
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
       <VideoBackground />
       <div className="video-overlay" />
 
-      {/* ⭐ NAVBAR (contains Resume button now) */}
+      {/* ⭐ NAVBAR */}
       <Navbar setActiveSection={setActiveSection} />
 
       {/* ⭐ SWITCH PAGES LIKE AN APP */}
@@ -58,7 +57,7 @@ function App() {
         </section>
       )}
 
-      {/* ⭐ NEW RESUME SECTION */}
+      {/* ⭐ RESUME SECTION */}
       {activeSection === "resume" && (
         <section id="resume" className="reveal reveal-left active">
           <Resume />
@@ -72,7 +71,6 @@ function App() {
       )}
 
       <Footer />
-      <Chatbot />
     </div>
   );
 }
